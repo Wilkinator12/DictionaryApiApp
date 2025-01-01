@@ -47,7 +47,7 @@ namespace WpfUI
 
             try
             {
-                dictionaryDefinition = (await _db.LookupWord(wordToLookUp)).First();
+                dictionaryDefinition = (await _db.LookupWordAsync(wordToLookUp)).First();
             }
             catch
             {

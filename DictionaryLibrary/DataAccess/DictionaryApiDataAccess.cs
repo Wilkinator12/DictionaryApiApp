@@ -26,7 +26,7 @@ namespace DictionaryLibrary.DataAccess
         }
 
 
-        public async Task<List<DictionaryApiResponseModel>> LookupWord(string word)
+        public async Task<List<DictionaryApiResponseModel>> LookupWordAsync(string word)
         {
             List<DictionaryApiResponseModel> output;
 

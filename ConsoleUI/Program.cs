@@ -21,7 +21,8 @@ namespace ConsoleUI
 
             while (continueLooping == true)
             {
-                await PromptWordLookup();
+                Console.WriteLine();
+                await PromptWordLookupAsync();
                 Console.WriteLine();
 
 
@@ -38,7 +39,7 @@ namespace ConsoleUI
             Console.ReadLine();
         }
 
-        private static async Task PromptWordLookup()
+        private static async Task PromptWordLookupAsync()
         {
             var db = _serviceProvider.GetService<IDictionaryApiDataAccess>();
 
@@ -50,9 +51,9 @@ namespace ConsoleUI
 
             try
             {
-                var lookupTask = db.LookupWord(word);
+                var lookupTask = db.LookupWordAsync(word);
 
-                Console.WriteLine("Loading...");
+                Console.WriteLine("Loading...\n");
 
                 var definition = (await lookupTask).First();
                 Console.WriteLine($"Definition of {definition.Word}: {definition.Meanings.First().Definitions.First().Definition}");

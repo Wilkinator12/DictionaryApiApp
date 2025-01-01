@@ -6,6 +6,6 @@ namespace DictionaryLibrary.DataAccess
 {
     public interface IDictionaryApiDataAccess
     {
-        Task<List<DictionaryApiResponseModel>> LookupWord(string word);
+        Task<List<DictionaryApiResponseModel>> LookupWordAsync(string word);
     }
 }
