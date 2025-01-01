@@ -1,0 +1,61 @@
+﻿<Window x:Class="WpfUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI"
+        mc:Ignorable="d"
+        Title="Dictionary App" Height="568" Width="693" 
+        FontFamily="Consolas" FontSize="25" Background="#FF575050">
+    <Grid Margin="20 0 20 20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--Header-->
+        <TextBlock Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0 10" FontSize="30" Foreground="Gainsboro">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="0" Color="#FF7D7D7D" ShadowDepth="2"/>
+            </TextBlock.Effect>
+            Dictionary API App
+        </TextBlock>
+
+        <!--Lookup Row-->
+        <TextBox x:Name="wordTextBox" Height="45" 
+                 Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" Margin="0 0 10 0" 
+                 Background="Gainsboro"/>
+        <Button x:Name="lookupButton"
+                Grid.Row="1" Grid.Column="1" Width="100" HorizontalAlignment="Left"
+                Click="LookupButton_Click" MouseEnter="LookupButton_MouseEnter" MouseLeave="LookupButton_MouseLeave" Cursor="Hand">
+            <Button.Effect>
+                <DropShadowEffect BlurRadius="10" Color="#FF7D7D7D"/>
+            </Button.Effect>
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF7082C5" Offset="1"/>
+                    <GradientStop Color="#FEB2B7BF" Offset="0.009"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            lookup
+        </Button>
+
+        <!--Definition Block-->
+        <TextBlock x:Name="definitionsTitleTextBlock" Grid.Row="2" Grid.Column="0" Margin="0 10 0 10" Foreground="Gainsboro">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="0" Color="#FF7D7D7D" ShadowDepth="2"/>
+            </TextBlock.Effect>
+            Definitions:
+        </TextBlock>
+        <ScrollViewer x:Name="definitionsScrollViewer" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBox x:Name="definitionsTextBlock" TextWrapping="Wrap" FontSize="20" Background="Gainsboro"/>
+        </ScrollViewer>
+    </Grid>
+</Window>
